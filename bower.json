@@ -1,0 +1,6 @@
+{
+  "name": "web-basic",
+  "dependencies": {
+    "bootstrap": "~3.3.5"
+  }
+}
