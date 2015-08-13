@@ -9,12 +9,13 @@ Choose.prototype = Object.create(Topic.prototype);
 
 Choose.prototype.constructor = Choose;
 
-Choose.prototype.getScore = function(form,data){
+Choose.prototype.getScore = function(form){
 
     var score = 0;
-    data.content.forEach(function(element){
+    var that = this;
+    this.content.forEach(function(element){
        if(form[element.name] === element.stdAnswer){
-           score += data.score;
+           score += that.score;
        }
     });
 

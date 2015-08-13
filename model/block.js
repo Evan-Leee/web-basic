@@ -11,17 +11,18 @@ Block.prototype = Object.create(Topic.prototype);
 Block.prototype.constructor = Block;
 
 
-Block.prototype.getScore = function(form,data){
+Block.prototype.getScore = function(form){
 
   var score = 0;
-  data.content.forEach(function(element){
+  var that = this;
+  this.content.forEach(function(element){
       if(element.items[0] < 2){
           if(form[element.name] === element.stdAnswer){
-              score += data.score;
+              score += that.score;
           }
       }else{
 
-          score += _.intersection(form[element.name],element.stdAnswer).length * data.score;
+          score += _.intersection(form[element.name],element.stdAnswer).length * that.score;
       }
 
   });

@@ -10,13 +10,14 @@ Multi.prototype = Object.create(Topic.prototype);
 
 Multi.prototype.constructor = Multi;
 
-Multi.prototype.getScore = function(form,data){
+Multi.prototype.getScore = function(form){
 
     var score = 0;
-    data.content.forEach(function(element){
-        if(form[element.name].length > 2 && _.intersection(form[element.name],element.stdAnswer).length === 3){
+    var that = this;
+    this.content.forEach(function(element){
+        if( _.intersection(form[element.name],element.stdAnswer).length === 3){
 
-            score += data.score;
+            score += that.score;
         }
 
     });

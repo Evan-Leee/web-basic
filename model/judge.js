@@ -10,13 +10,14 @@ Judge.prototype = Object.create(Topic.prototype);
 
 Judge.prototype.constructor = Judge;
 
-Judge.prototype.getScore = function(form,data){
+Judge.prototype.getScore = function(form){
 
-    var score = 0;
-    data.content.forEach(function(element){
+   var score = 0;
+   var that = this;
+   this.content.forEach(function(element){
 
        if(form[element.name] === element.stdAnswer){
-           score += data.score;
+           score += that.score;
        }
     });
 

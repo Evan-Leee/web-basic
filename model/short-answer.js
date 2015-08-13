@@ -9,16 +9,19 @@ ShortAnswer.prototype = Object.create(Topic.prototype);
 
 ShortAnswer.prototype.constructor = ShortAnswer;
 
-ShortAnswer.prototype.getScore = function(form,data){
+ShortAnswer.prototype.getScore = function(form){
 
     var score = 0;
-    data.content.forEach(function(element){
+    var that = this;
+    this.content.forEach(function(element){
 
         if(form[element.name] === element.stdAnswer){
-            score += data.score;
+            score += that.score;
         }
 
     });
+
+    return score;
 
 };
 
