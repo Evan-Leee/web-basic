@@ -1,9 +1,14 @@
+<% var data = dataArray[4];%>
+
 <div>
-    <h3>简答题</h3>
+    <h3><%=data.title%></h3>
     <ul>
-        <li>
-            <label>1. 简述什么是模型以及模型的表现形式?</label>
-        </li>
-        <textarea cols="40" rows="4" name="5-1"></textarea>
+        <%data.content.forEach(function(element,i){%>
+          <li>
+              <label><%=i+1%>. <%=element.description%></label>
+          </li>
+          <textarea cols="40" rows="4" name="<%element.name%>"></textarea>
+
+        <%});%>
     </ul>
 </div>

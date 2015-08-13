@@ -1,11 +1,18 @@
+<%var data = dataArray[0];%>
+
 <div>
-    <h3>填空题</h3>
+    <h3><%=data.title%></h3>
     <ul>
-        <li><label>1. UML的中文全称是:</label><label><input type="text" name="1-1"></label></li>
-        <li><label>2. 对象最突出的特征是:</label><label><input type="text" name="1-2">
-                <input type="text" name="1-2">
-                <input type="text" name="1-2">
-            </label>
-        </li>
+        <%data.content.forEach(function(element,i){%>
+
+        <li><label><%=i+1%>. <%=element.description%>:</label>
+            <label>
+              <%for(var k = 0; k < element.items[0]; k++){%>
+                <input  type="text" name="<%=element.name%>" >
+                <%}%>
+            </label></li>
+
+        <%})%>
+
     </ul>
 </div>

@@ -1,10 +1,10 @@
 'use strict';
-var data = require('../data.json');
+var seed = require('../data.json');
 var Factory = require('./factory');
 var Topic = require('./topic');
 
 function Data(){
-    this.data = data;
+    this.data = seed['data'];
     this.dataArray = [];
 }
 
@@ -20,4 +20,8 @@ Data.prototype.setData = function(){
 
         that.dataArray.push(topic);
     });
-}
+
+    return this.dataArray;
+};
+
+module.exports = Data;
