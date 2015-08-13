@@ -1,12 +1,10 @@
 'use strict';
 
 var express = require('express');
-
+var setData = require('../controller/data-controller');
 var router = express.Router();
 
-router.get('/', function(req, res) {
-    res.render('index' );
-});
+router.get('/',setData);
 
 
 router.post('/',function(req,res){

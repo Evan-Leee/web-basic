@@ -21,3 +21,5 @@ ShortAnswer.prototype.getScore = function(form,data){
     });
 
 };
+
+module.exports = ShortAnswer;

@@ -22,6 +22,8 @@ Judge.prototype.getScore = function(form,data){
 
     return score;
 };
+
+module.exports = Judge;
 //
 //var data = {score:5,content:[{name:'1-1',stdAnswer:'aaa',items:[1]},{name:'1-2',stdAnswer:'sss',items:[3]}]};
 //var form = {'1-1':'aaa','1-2':'sss'};

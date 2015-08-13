@@ -22,6 +22,8 @@ Choose.prototype.getScore = function(form,data){
 
 };
 
+
+module.exports = Choose;
 //var data = {score:5,content:[{name:'1-1',stdAnswer:'a',items:[1]},{name:'1-2',stdAnswer:'b',items:[3]}]};
 //var form = {'1-1':'a','1-2':'b'};
 //

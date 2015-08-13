@@ -24,6 +24,8 @@ Multi.prototype.getScore = function(form,data){
     return score;
 };
 
+module.exports = Multi;
+
 //var data = {score:5,content:[{name:'1-1',stdAnswer:'aaa',items:[1]},{name:'1-2',stdAnswer:['sss','ddd','fff'],items:[3]}]};
 //var form = {'1-1':'aaa','1-2':['sss','ddd','fff']};
 //
