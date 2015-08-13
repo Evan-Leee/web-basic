@@ -1,16 +1,28 @@
-<%var data = dataArray['multi'];%>
+<%var data = questions['multi'];%>
 
-<div>
-    <h3><%=data.title%></h3>
-    <% data.content.forEach(function(element,i){%>
+<div class="panel panel-default">
+    <div class="panel-heading"><h3><%=data.title%></h3></div>
+    <div class="panel-body">
+        <% data.content.forEach(function(element,i){%>
 
-    <label><%=i+1%>.<%=element.description%>:</label>
-    <ul>
-        <%element.items.forEach(function(item){%>
+        <label><%=i+1%>.<%=element.description%>:</label>
+        <dl>
+            <%element.items.forEach(function(item){%>
 
-        <li><input type="checkbox" name="<%=element.name%>" value="<%=item[0]%>"><%=item[1]%></li>
+            <dd><input type="checkbox" name="<%=element.name%>" value="<%=item[0]%>"
 
-        <%})%>
-    </ul>
-    <%});%>
+                        <%if(form && form[element.name]){%>
+                           <%if(form[element.name].indexOf(item[0]) !== -1 ){%>
+
+                            checked="checked"
+                           <%}%>
+                        <%}%>
+
+                        ><%=item[1]%></dd>
+
+            <%})%>
+        </dl>
+        <%});%>
+    </div>
+
 </div>

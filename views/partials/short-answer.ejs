@@ -1,14 +1,18 @@
-<% var data = dataArray['shortAnswer'];%>
+<% var data = questions['shortAnswer'];%>
 
-<div>
-    <h3><%=data.title%></h3>
-    <ul>
-        <%data.content.forEach(function(element,i){%>
-          <li>
-              <label><%=i+1%>. <%=element.description%></label>
-          </li>
-          <textarea cols="40" rows="4" name="<%element.name%>"></textarea>
+<div class="panel panel-default">
+    <div class="panel-heading"> <h3><%=data.title%></h3></div>
+    <div class="panel-body">
+        <dl>
+            <%data.content.forEach(function(element,i){%>
+            <dd>
+                <label><%=i+1%>. <%=element.description%></label>
+            </dd>
 
-        <%});%>
-    </ul>
+          <textarea cols="40" rows="4" name="<%element.name%>" class="form-control"
+                  ><%if(form && form[element.name]){%><%=form[element.name]%> <%}%></textarea>
+            <%});%>
+        </dl>
+    </div>
+
 </div>

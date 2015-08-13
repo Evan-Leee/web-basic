@@ -1,17 +1,36 @@
-<h1>统一建模语言测试</h1>
-<div>
-    <div>
-        <label>考试科目:</label><label >统一建模语言UML</label>
+<div class="jumbotron text-center">
+    <h1>统一建模语言测试</h1>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+    <div class="col-md-4">
+        <label class="col-md-4">考试科目:</label><label class="col-md-6">统一建模语言UML</label>
     </div>
-    <div>
-        <label>时间:</label><label>100分钟</label>
+    <div class="col-md-4">
+        <label class="col-md-4">时间:</label><label class="col-md-6">100分钟</label>
     </div>
-    <div>
-        <label>得分:</label><i></i>
+    <div class="col-md-4">
+        <label class="col-md-4">得分:</label> <%if(form){%><i class="text-danger"><%=score%></i><%}%>
     </div>
-    <div>
-        <label>班级:</label><label><input type="text" ></label>
-        <label>姓名:</label><label><input type="text"></label>
-        <label>学号:</label><label><input type="text"></label>
+
+        <div class="col-md-4">
+            <label class="col-md-3">班级:</label>
+            <label class="col-md-5"><input type="text" name="class" class="form-control" id="class"
+                                           <%if(form){%>value="<%=form['class']%>"<%}%>></label>
+        </div>
+        <div class="col-md-4">
+            <label class="col-md-3">姓名:</label>
+            <label class="col-md-5"><input type="text" name="name" class="form-control" id="name"
+                          <%if(form){%>value="<%=form['name']%>"<%}%>></label>
+        </div>
+        <div class="col-md-4">
+            <label class="col-md-3">学号:</label>
+            <label class="col-md-5"><input type="text" name="stu_no" class="form-control" id="stu_no"
+                          <%if(form){%>value="<%=form['stu_no']%>"<%}%>></label>
+        </div>
+
+
+
     </div>
 </div>

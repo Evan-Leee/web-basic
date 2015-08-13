@@ -1,17 +1,29 @@
-<%var data = dataArray['judge'];%>
+<%var data = questions['judge'];%>
 
-<div>
-    <h3><%=data.title%></h3>
-    <ul>
-        <%data.content.forEach(function(element,i){%>
+<div class="panel panel-default">
+    <div class="panel-heading"><h3><%=data.title%></h3></div>
+    <div class="panel-body">
+        <dl>
+            <%data.content.forEach(function(element,i){%>
 
-        <li><label><%=i+1%>. <%=element.description%></label>
-            <input type="radio" name="<%=element.name%>" value="false">false
-            <input type="radio" name="<%=element.name%>" value="true">true
-        </li>
-                <%});%>
+            <dd><label><%=i+1%>. <%=element.description%></label>
 
+                <input type="radio" name="<%=element.name%>" value="false"
+                        <%if(form && form[element.name] === 'false'){%>
+                       checked="checked"
+                        <%}%>
+                        ><span class="glyphicon glyphicon-remove text-danger"></span>
+                <input type="radio" name="<%=element.name%>" value="true"
 
-    </ul>
+                        <%if(form && form[element.name] === 'true'){%>
+                       checked="checked"
+                        <%}%>
+                        ><span class="glyphicon glyphicon-ok text-success"></span>
+            </dd>
+            <%});%>
+
+        </dl>
+    </div>
+
 
 </div>
