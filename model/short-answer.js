@@ -1,4 +1,5 @@
 'use strict';
+var Topic = require('./topic');
 
 function ShortAnswer(type,title,score){
     Topic.call(this,type,title,score);

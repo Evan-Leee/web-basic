@@ -1,4 +1,6 @@
 'use strict';
+var Topic = require('./topic');
+
 
 function Judge(type,title,score){
     Topic.call(this,type,title,score);
@@ -17,5 +19,13 @@ Judge.prototype.getScore = function(form,data){
            score += data.score;
        }
     });
-};
 
+    return score;
+};
+//
+//var data = {score:5,content:[{name:'1-1',stdAnswer:'aaa',items:[1]},{name:'1-2',stdAnswer:'sss',items:[3]}]};
+//var form = {'1-1':'aaa','1-2':'sss'};
+//
+//var b = new Judge();
+//
+//console.log(b.getScore(form,data));
