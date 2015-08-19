@@ -2,12 +2,12 @@
   "data":[
     {
       "title":"填空题(30分,每空1分)",
-      "type":"block",
+      "type":"fillin",
       "score":10,
       "content":[
         {
           "name":"1-1",
-          "items":[1],
+
           "description":"UML的中文全称是",
           "stdAnswer":"统一建模语言"
         },

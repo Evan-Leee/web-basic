@@ -1,10 +1,10 @@
-<% var data = questions['shortAnswer'];%>
+
 
 <div class="panel panel-default">
-    <div class="panel-heading"> <h3><%=data.title%></h3></div>
+    <div class="panel-heading"> <h3>简答题(每题5分,共20分)</h3></div>
     <div class="panel-body">
         <dl>
-            <%data.content.forEach(function(element,i){%>
+            <%shortAnswers.forEach(function(element,i){%>
             <dd>
                 <label><%=i+1%>. <%=element.description%></label>
             </dd>

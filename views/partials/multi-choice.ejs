@@ -1,0 +1,28 @@
+
+
+<div class="panel panel-default">
+    <div class="panel-heading"><h3>多选题(每题2分共20分)</h3></div>
+    <div class="panel-body">
+        <% multis.forEach(function(element,i){%>
+
+        <label><%=i+1%>.<%=element.description%>:</label>
+        <dl>
+            <%element.options.forEach(function(item){%>
+
+            <dd><input type="checkbox" name="<%=element.name%>" value="<%=item.key%>"
+
+                        <%if(form && form[element.name]){%>
+                           <%if(form[element.name].indexOf(item.key) !== -1 ){%>
+                            checked="checked"
+                           <%}%>
+                        <%}%>
+
+                        >(<%=item.key%>)<%=item.value%>
+            </dd>
+
+            <%})%>
+        </dl>
+        <%});%>
+    </div>
+
+</div>

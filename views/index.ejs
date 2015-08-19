@@ -1,23 +1,23 @@
-<% include partials/head.ejs%>
+<%- include('partials/head') %>
 
 <form action="/" method="post" class="form-inline">
 
-    <% include partials/title.ejs%>
+    <%- include('partials/title')%>
 
-    <% include partials/fill-block.ejs%>
+    <%- include('partials/fill-in',{fillins:questions.fillins})%>
 
-    <% include partials/choose.ejs%>
+    <%- include('partials/choice',{choices:questions.choices})%>
 
-    <% include partials/multi-choose.ejs%>
+    <%- include('partials/multi-choice',{multis:questions.multis})%>
 
-    <% include partials/judge.ejs%>
+    <%- include('partials/judgement',{judgements:questions.judgements})%>
 
-    <% include partials/short-answer.ejs%>
+    <%- include('partials/short-answer',{shortAnswers:questions.shortAnswers})%>
 
     <button type="button" class="btn btn-primary btn-block"  >提交</button>
 
 </form>
 
 
-<% include partials/modal.ejs%>
-<% include partials/foot.ejs%>
+<%- include('partials/modal')%>
+<%- include('partials/foot')%>

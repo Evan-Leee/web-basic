@@ -1,8 +1,8 @@
 'use strict';
 var Topic = require('./topic');
 
-function ShortAnswer(type,title,score){
-    Topic.call(this,type,title,score);
+function ShortAnswer(type,description,score,name,stdAnswer){
+    Topic.call(this,type,description,score,name,stdAnswer);
 }
 
 ShortAnswer.prototype = Object.create(Topic.prototype);
@@ -12,14 +12,10 @@ ShortAnswer.prototype.constructor = ShortAnswer;
 ShortAnswer.prototype.getScore = function(form){
 
     var score = 0;
-    var that = this;
-    this.content.forEach(function(element){
 
-        if(form[element.name] === element.stdAnswer){
-            score += that.score;
+        if(form[this.name] === this.stdAnswer){
+            score += this.score;
         }
-
-    });
 
     return score;
 

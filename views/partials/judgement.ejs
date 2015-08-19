@@ -1,22 +1,22 @@
-<%var data = questions['judge'];%>
+
 
 <div class="panel panel-default">
-    <div class="panel-heading"><h3><%=data.title%></h3></div>
+    <div class="panel-heading"><h3>判断题(每题2分,共20分)</h3></div>
     <div class="panel-body">
         <dl>
-            <%data.content.forEach(function(element,i){%>
+            <%judgements.forEach(function(element,i){%>
 
             <dd><label><%=i+1%>. <%=element.description%></label>
 
                 <input type="radio" name="<%=element.name%>" value="false"
                         <%if(form && form[element.name] === 'false'){%>
-                       checked="checked"
+                           checked="checked"
                         <%}%>
                         ><span class="glyphicon glyphicon-remove text-danger"></span>
                 <input type="radio" name="<%=element.name%>" value="true"
 
                         <%if(form && form[element.name] === 'true'){%>
-                       checked="checked"
+                           checked="checked"
                         <%}%>
                         ><span class="glyphicon glyphicon-ok text-success"></span>
             </dd>

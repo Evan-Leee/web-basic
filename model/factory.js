@@ -1,61 +1,72 @@
 'use strict';
-var Block = require('./block');
-var Choose = require('./choose');
-var Multi = require('./multi-choose');
-var Judge = require('./judge');
+var FillIn = require('./fill-in');
+var Choice = require('./choice');
+var Multi = require('./multi-choice');
+var Judge = require('./judgement');
 var ShortAnswer = require('./short-answer');
-var seed = require('../data.json');
+var Database = require('../seed/data-base');
+var database = new Database();
+database.dataInit();
 
 function Factory(){
 
 }
 
-Factory.setQuestion = function(){
-    var data =seed['data'];
+Factory.prototype.setQuestions = function(){
 
-    var block;
-    var choose;
-    var multi;
-    var judge;
-    var shortAnswer;
+    console.log(database);
 
-    data.forEach(function(element){
 
-        if(element.type === 'block'){
-            block = new Block(element.type,element.title,element.score);
-            element.content.forEach(function(content){
-                block.addContent(content.name,content.items,content.description,content.stdAnswer) ;
-            });
+    var fillins = [];
+    var choices = [];
+    var multis = [];
+    var judgements = [];
+    var shortAnswers = [];
+
+    database.data.forEach(function(element){
+
+        if(element.type === 'fill-in'){
+            var fillin = new FillIn(element.type,element.description,element.score,element.name,element.stdAnswer);
+
+            fillin.addOption(element.options);
+
+            fillins.push(fillin);
         }
-        if(element.type === 'choose'){
-            choose = new Choose(element.type,element.title,element.score);
-            element.content.forEach(function(content){
-                choose.addContent(content.name,content.items,content.description,content.stdAnswer) ;
-            });
+        if(element.type === 'choice'){
+            var choice = new Choice(element.type,element.description,element.score,element.name,element.stdAnswer);
+
+            choice.addOption(element.options);
+
+            choices.push(choice);
         }
         if(element.type === 'multi'){
-            multi = new Multi(element.type,element.title,element.score);
-            element.content.forEach(function(content){
-                multi.addContent(content.name,content.items,content.description,content.stdAnswer) ;
-            });
+            var multi = new Multi(element.type,element.description,element.score,element.name,element.stdAnswer);
+
+            multi.addOption(element.options);
+
+            multis.push(multi);
+
         }
         if(element.type === 'judge'){
-            judge = new Judge(element.type,element.title,element.score);
-            element.content.forEach(function(content){
-                judge.addContent(content.name,content.items,content.description,content.stdAnswer) ;
-            });
+            var judgement = new Judge(element.type,element.description,element.score,element.name,element.stdAnswer);
+
+            judgement.addOption(element.options);
+
+            judgements.push(judgement);
+
         }
         if(element.type === 'shortAnswer'){
-            shortAnswer = new ShortAnswer(element.type,element.title,element.score);
-            element.content.forEach(function(content){
-                shortAnswer.addContent(content.name,content.items,content.description,content.stdAnswer) ;
-            });
+            var shortAnswer = new ShortAnswer(element.type,element.description,element.score,element.name,element.stdAnswer);
+
+            shortAnswer.addOption(element.options);
+
+            shortAnswers.push(shortAnswer);
         }
 
 
     });
 
-    return {block:block,choose:choose,multi:multi,judge:judge,shortAnswer:shortAnswer}
+    return {fillins:fillins,choices:choices,multis:multis,judgements:judgements,shortAnswers:shortAnswers}
 };
 
 module.exports = Factory;

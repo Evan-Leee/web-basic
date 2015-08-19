@@ -25,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 
 
+
 app.listen(3000,function(){
    console.log('listen the port 3000');
 });
