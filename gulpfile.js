@@ -18,12 +18,9 @@ gulp.task('start',function(){
 
 
 gulp.task('dbinit',function(){
-    exec('mysql -u root -p838581 < ./public/sql/create.sql');
-    console.log('数据库已初始化!')
-});
-
-gulp.task('dbdrop',function(){
     exec('mysql -u root -p838581 < ./public/sql/drop.sql');
     console.log('数据库已删除!')
+    exec('mysql -u root -p838581 < ./public/sql/create.sql');
+    console.log('数据库已初始化!')
 });
 
