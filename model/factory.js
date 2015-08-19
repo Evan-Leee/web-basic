@@ -13,10 +13,7 @@ function Factory(){
 }
 
 Factory.prototype.setQuestions = function(){
-
-    console.log(database);
-
-
+    
     var fillins = [];
     var choices = [];
     var multis = [];
