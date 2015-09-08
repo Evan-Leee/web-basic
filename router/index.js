@@ -1,7 +1,8 @@
 'use strict';
 
 var express = require('express');
-var setData = require('../controller/data-controller');
+var DataController = require('../controller/data-controller');
+var setData = new DataController().setData;
 var setScore = require('../controller/score-controller')
 var router = express.Router();
 
