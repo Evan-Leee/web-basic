@@ -7,9 +7,9 @@ var ScoreController = require('../controller/score-controller');
 var setScore = new ScoreController().setScore;
 var router = express.Router();
 
-router.get('/',setData);
+router.get('/', setData);
 
 
-router.post('/',setScore);
+router.post('/', setScore);
 
 module.exports = router;

@@ -1,24 +1,23 @@
-
 <div class="panel panel-default">
     <div class="panel-heading"><h3>单选题(每题2分共20分)</h3></div>
     <div class="panel-body">
-        <% choices.forEach(function(element,i){%>
+        <% choices.forEach(function(element, i){ %>
 
-        <label><%=i+1%>.<%=element.description%>:</label>
+        <label><%= i+1 %>.<%= element.description %>:</label>
         <dl>
-            <%element.options.forEach(function(item){%>
+            <% element.options.forEach(function(item){ %>
 
-            <dd><input type="radio" name="<%=element.name%>" value="<%=item.key%>"
+            <dd><input type="radio" name="<%= element.name %>" value="<%= item.key %>"
 
-                        <%if(form && form[element.name] === item.key){%>
-                            checked="checked"
-                        <%}%>
+                        <% if(form && form[element.name] === item.key){ %>
+                       checked="checked"
+                        <% } %>
 
-                        >(<%=item.key%>)<%=item.value%></dd>
+                        >(<%= item.key %>)<%= item.value %></dd>
 
-            <%})%>
+            <% }) %>
         </dl>
-        <%});%>
+        <% }); %>
     </div>
 
 

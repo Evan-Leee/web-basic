@@ -3,9 +3,7 @@ var nodemon = require('gulp-nodemon');
 var exec = require('child_process').exec;
 
 
-
-
-gulp.task('start',function(){
+gulp.task('start', function () {
     nodemon({
         script: 'app.js'
         , ext: 'ejs js json'
@@ -17,7 +15,7 @@ gulp.task('start',function(){
 });
 
 
-gulp.task('dbinit',function(){
+gulp.task('dbinit', function () {
     exec('mysql -u root -p838581 < ./public/sql/drop.sql');
     console.log('数据库已删除!')
     exec('mysql -u root -p838581 < ./public/sql/create.sql');

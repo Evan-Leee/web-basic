@@ -1,28 +1,27 @@
-
 <div class="panel panel-default">
     <div class="panel-heading"><h3>填空题(30分,每空1分)</h3></div>
     <div class="panel-body">
         <dl>
-            <%fillins.forEach(function(element,i){%>
+            <% fillins.forEach(function(element, i){ %>
 
-            <dd><label><%=i+1%>. <%=element.description%>:</label>
+            <dd><label><%= i+1 %>. <%= element.description %>:</label>
                 <label>
-                    <%for(var k = 0; k < element.stdAnswer.length; k++){%>
-                    <input  type="text" name="<%=element.name%>" class="form-control"
-                            <%if(form){%>
+                    <% for(var k = 0; k < element.stdAnswer.length; k++){ %>
+                    <input type="text" name="<%= element.name %>" class="form-control"
+                            <% if(form){ %>
 
-                            <%if( Array.isArray(form[element.name])){%>
-                            value="<%=form[element.name][k]%>"
-                            <%}else{%>
-                            value="<%=form[element.name]%>"
+                            <% if( Array.isArray(form[element.name])){ %>
+                           value="<%= form[element.name][k] %>"
+                            <% }else{ %>
+                           value="<%= form[element.name] %>"
 
-                            <%}%>
-                            <%}%>
+                            <% } %>
+                            <% } %>
                             >
-                    <%}%>
+                    <% } %>
                 </label></dd>
 
-            <%})%>
+            <% }) %>
 
         </dl>
 

@@ -1,6 +1,6 @@
 'use strict';
 
-function Topic(type,description,score,name,stdAnswer){
+function Topic(type, description, score, name, stdAnswer) {
     this.description = description;
     this.type = type;
     this.score = score;
@@ -10,19 +10,17 @@ function Topic(type,description,score,name,stdAnswer){
 }
 
 
-Topic.prototype.addOption = function(options){
+Topic.prototype.addOption = function (options) {
     var that = this;
-    if(options){
+    if (options) {
         var array = options.split(',');
-        array.forEach(function(option){
-            that.options.push({key:option[0],value:option.substring(1)});
+        array.forEach(function (option) {
+            that.options.push({key: option[0], value: option.substring(1)});
         });
-
     }
-
 };
 
-Topic.prototype.getScore = function(){
+Topic.prototype.getScore = function () {
 
 };
 

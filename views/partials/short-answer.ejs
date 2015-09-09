@@ -1,17 +1,19 @@
-
-
 <div class="panel panel-default">
-    <div class="panel-heading"> <h3>简答题(每题5分,共20分)</h3></div>
+    <div class="panel-heading"><h3>简答题(每题5分,共20分)</h3></div>
     <div class="panel-body">
         <dl>
-            <%shortAnswers.forEach(function(element,i){%>
+            <% shortAnswers.forEach(function(element, i){ %>
             <dd>
-                <label><%=i+1%>. <%=element.description%></label>
+                <label><%= i+1 %>. <%= element.description %></label>
             </dd>
 
-          <textarea cols="40" rows="4" name="<%element.name%>" class="form-control"
-                  ><%if(form && form[element.name]){%><%=form[element.name]%> <%}%></textarea>
-            <%});%>
+          <textarea cols="40" rows="4" name="<% element.name %>" class="form-control"
+                  >
+              <% if(form && form[element.name]){ %>
+              <%= form[element.name] %>
+              <% } %>
+          </textarea>
+            <% }); %>
         </dl>
     </div>
 
